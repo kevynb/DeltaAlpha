@@ -1,0 +1,28 @@
+﻿@model DeltaAlpha.Models.PledgeClass
+
+@{
+    ViewBag.Title = Model.Name;
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <h4>PledgeClass</h4>
+    <p>This pledge class happened in the @Model.Semester Semester of @Model.Year</p>
+	<hr />
+    <div class="memberList">
+        <h4>@Html.DisplayNameFor(model => model.Members)</h4>
+        <ul>
+            @foreach (var bro in Model.Members)
+            {
+                <li>
+                    @Html.ActionLink(bro.FullName, "Details", "Brother", new { bro.Id }, new{})
+                </li>
+            }
+        </ul>
+    </div>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

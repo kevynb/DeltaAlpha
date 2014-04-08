@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>ΔΧ</h1>
+    <p class="lead">This application aims to contains all the informations regarding the members of Delta Chi Long Beach.</p>
+    <p>@Html.ActionLink("Show me the brothers!", "Index", "Brother", new { }, new { @class = "btn btn-primary btn-large" })</p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Getting started</h2>
+        <p>
+            You need to make sure there is already some families and some pledge classes defined before creating new brothers.
+            If you don't, you will not be able to create the new brother, because this informations are required.
+        </p>
+    </div>
+</div>

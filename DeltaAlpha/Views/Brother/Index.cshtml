@@ -1,0 +1,77 @@
+﻿@using System.Activities.Expressions
+@model IEnumerable<DeltaAlpha.Models.Brother>
+
+@{
+    ViewBag.Title = "Brothers";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BigBrother)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Family.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PledgeClass)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FullName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HomeTown)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NickName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Position)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @if (item.BigBrother != null)
+            {
+                Html.ActionLink(item.BigBrother.FullName, "Details", new {id = item.BigBrotherId});
+            }
+            else
+            {
+                @:Not known yet
+            }
+        </td>
+        <td>
+            @Html.ActionLink(item.Family.Name, "Details","Family", new {id = item.FamilyId }, new {})
+        </td>
+        <td>
+            @Html.ActionLink(item.PledgeClass.Name, "Details", "PledgeClass", new {id = item.PledgeClassId }, new {})
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FullName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HomeTown)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NickName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Position)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
