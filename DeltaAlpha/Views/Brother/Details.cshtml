@@ -1,4 +1,5 @@
-﻿@model DeltaAlpha.Models.Brother
+﻿@using System.Activities.Expressions
+@model DeltaAlpha.Models.Brother
 
 @{
     ViewBag.Title = "Details";
@@ -38,7 +39,14 @@
         </dt>
 
         <dd>
-            @Html.ActionLink(Model.PledgeClass.Name, "Details", "PledgeClass", new { id = Model.PledgeClassId }, new { })
+            @if (Model.PledgeClass != null)
+            {
+                Html.ActionLink(Model.PledgeClass.Name, "Details", "PledgeClass", new {id = Model.PledgeClassId}, new {});
+            }
+            else
+            {
+                @:Not known yet
+            }
         </dd>
 
         <dt>

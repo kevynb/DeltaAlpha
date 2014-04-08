@@ -15,7 +15,7 @@
             @Html.DisplayNameFor(model => model.BigBrother)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Family.Name)
+            @Html.DisplayNameFor(model => model.Family)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.PledgeClass)
@@ -51,7 +51,14 @@
             @Html.ActionLink(item.Family.Name, "Details","Family", new {id = item.FamilyId }, new {})
         </td>
         <td>
-            @Html.ActionLink(item.PledgeClass.Name, "Details", "PledgeClass", new {id = item.PledgeClassId }, new {})
+           @if (item.PledgeClass != null)
+           {
+               Html.ActionLink(item.PledgeClass.Name, "Details", "PledgeClass", new {id = item.PledgeClassId}, new {});
+           }
+           else
+           {
+                @: Not known yet
+           }
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.FullName)

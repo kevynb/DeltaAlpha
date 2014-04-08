@@ -16,7 +16,7 @@ namespace DeltaAlpha.Models
         public string NickName { get; set; }
         public string Position { get; set; }
 
-        public int PledgeClassId { get; set; }
+        public int? PledgeClassId { get; set; }
         public int? BigBrotherId { get; set; }
         public int FamilyId { get; set; }
 
